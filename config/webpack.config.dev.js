@@ -153,6 +153,7 @@ module.exports = {
           /\.(js|jsx)(\?.*)?$/,
           /\.(ts|tsx)(\?.*)?$/,
           /\.css$/,
+          /\.scss$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -218,6 +219,14 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'typings-for-css-modules-loader?modules&namedExport&camelCase' },
+          { loader: 'sass-loader' },
+        ],
+      },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
     ],
@@ -255,6 +264,9 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.WatchIgnorePlugin([
+      /scss\.d\.ts$/
+    ]),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

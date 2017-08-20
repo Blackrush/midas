@@ -146,6 +146,7 @@ module.exports = {
           /\.(js|jsx)$/,
           /\.(ts|tsx)$/,
           /\.css$/,
+          /\.scss$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -226,6 +227,10 @@ module.exports = {
           )
         ),
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+      },
+      {
+        test: /\.scss$/,
+        loader: 'typings-for-css-modules-loader?modules&namedExport&camelCase&sass',
       },
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "file" loader exclusion list.
