@@ -1,13 +1,8 @@
 @import "~normalize.css/normalize.css";
 @import "~@blueprintjs/core/dist/blueprint.css";
-@import "~@blueprintjs/table/dist/table.css";
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
-
-.bp-table-quadrant-scroll-container {
-  overflow: hidden !important;
 }
